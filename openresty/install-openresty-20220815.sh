@@ -22,14 +22,14 @@ useradd www
 
 # google-perftools
 if [ -f  $SOFTWARE_DIR/libunwind-0.99.tar.gz  ];then
-   tar zxvf libunwind-0.99.tar.gz &&  cd libunwind-0.99/  && CFLAGS=-fPIC ./configure --prefix=/usr && make CFLAGS=-fPIC &&  make CFLAGS=-fPIC  && ln -s /usr/lib/libunwind.so.7 /usr/lib64/libunwind.so.7
+   tar -zxvf  $SOFTWARE_DIR/libunwind-0.99.tar.gz &&  cd libunwind-0.99/  && CFLAGS=-fPIC ./configure --prefix=/usr && make CFLAGS=-fPIC &&  make CFLAGS=-fPIC  && ln -s /usr/lib/libunwind.so.7 /usr/lib64/libunwind.so.7
 else
     cd $SOFTWARE_DIR && wget http://download.savannah.gnu.org/releases/libunwind/libunwind-0.99.tar.gz && tar zxvf libunwind-0.99.tar.gz &&  cd libunwind-0.99/  && CFLAGS=-fPIC ./configure --prefix=/usr && make CFLAGS=-fPIC &&  make CFLAGS=-fPIC  && ln -s /usr/lib/libunwind.so.7 /usr/lib64/libunwind.so.7
 fi
 
 
 if [ -f  $SOFTWARE_DIR/gperftools-2.7.tar.gz  ];then
-  tar zxvf gperftools-2.7.tar.gz && cd gperftools-2.7 && ./configure --enable-frame-pointers && make && make install
+  tar -zxvf $SOFTWARE_DIR/gperftools-2.7.tar.gz && cd gperftools-2.7 && ./configure --enable-frame-pointers && make && make install
 else
     cd $SOFTWARE_DIR &&    wget https://github.com/gperftools/gperftools/releases/download/gperftools-2.7/gperftools-2.7.tar.gz && tar zxvf gperftools-2.7.tar.gz && cd gperftools-2.7 && ./configure --enable-frame-pointers && make && make install
  
@@ -37,13 +37,13 @@ fi
 
 
 # openssl
-cd $SOFTWARE_DIR &&  tar -zxf $SOFTWARE_DIR/openssl-$OPENSSL_VER.tar.gz
+tar -zxf $SOFTWARE_DIR/openssl-$OPENSSL_VER.tar.gz
 
 # brotli
-cd $SOFTWARE_DIR &&  tar  -jxvf $SOFTWARE_DIR/ngx_brotli.tar.bz2
+tar  -jxvf $SOFTWARE_DIR/ngx_brotli.tar.bz2
 
 # ngx_purge
-cd $SOFTWARE_DIR && tar -jxvf $SOFTWARE_DIR/ngx_cache_purge-2.3.tar.gz
+tar -jxvf $SOFTWARE_DIR/ngx_cache_purge-2.3.tar.gz
 
 
 # verynginx
